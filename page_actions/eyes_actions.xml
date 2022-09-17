@@ -1,0 +1,9 @@
+<definitions>
+    <eyes_actions.Execute_Window_Checkpoint>
+        <action type="check" target="window" fullPage="exp[%full_screenshot%]" name="exp[%stepName%]"></action>
+    </eyes_actions.Execute_Window_Checkpoint>
+
+    <eyes_actions.Execute_Region_Checkpoint>
+        <action type="checkregion" by="exp[%selector_type%]" selector="exp[%selector%]" name="exp[%stepName%]" fullPage="exp[%full_screenshot%]"></action>
+    </eyes_actions.Execute_Region_Checkpoint>
+</definitions>

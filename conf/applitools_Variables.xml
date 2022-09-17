@@ -1,0 +1,6 @@
+<definitions>
+    <var key="app_name">NSW Jira3</var>
+    <var key="batch_name">Jira Data Migration</var>
+    <var key="tags">NSW</var>
+    <var key="targeted_browsers">chromeLocally_1300X800</var>
+</definitions>

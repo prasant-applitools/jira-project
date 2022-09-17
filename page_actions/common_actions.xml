@@ -1,0 +1,60 @@
+<definitions>
+
+    <common_actions.Login_To_Jira>
+        <action type="navigate">exeVar[JiraUrl]</action>
+        <action type="sendkeys" by="css" selector="#username">exeVar[UserName]</action>
+        <action type="click" by="css" selector="#login-submit"></action>
+		<action type="sendkeys" by="css" selector="#password">exeVar[Password]</action>
+        <action type="click" by="css" selector="#login-submit"></action>
+        <action type="implicitWait" by="css" selector="div.activity-stream-container.full-view.not-configurable" implicit_wait="30" onError="continue"/>
+    </common_actions.Login_To_Jira>
+
+    <common_actions.Navigate_To_Filter_Printable_Page>
+        <action type="click" by="css" selector="[data-testid='issue-navigator-action-export-issues.ui.filter-button']"></action>
+        <action type="implicitWait" by="css" selector="span[data-test-id='issue-navigator-action-export-issues.ui.span']" implicit_wait="30" onError="continue"/>
+       <action type="click" by="css" selector="span[data-test-id='issue-navigator-action-export-issues.ui.span']"></action>
+         <action type="sleep">5000</action>
+        <action type="switchContext" destination="window" index="1" />
+    </common_actions.Navigate_To_Filter_Printable_Page>
+
+    <common_actions.Navigate_To_Defect_Page>
+        <action type="function-addPrefix" prefix="exeVar[JiraUrl]" to="exp[%defect_path%]" OutputVariable="defectUrl" />
+        <action type="navigate">exp[%defectUrl%]</action>
+        <action type="implicitWait" by="css" selector="[data-test-id='ref-spotlight-target-status-spotlight'] button" implicit_wait="30" onError="continue"/>
+    </common_actions.Navigate_To_Defect_Page>
+
+    <common_actions.Navigate_To_Defect_Printable_Page>
+        <action type="function-addPrefix" prefix="exeVar[JiraUrl]" to="exp[%defect_printable_path%]" OutputVariable="defectUrl" />
+        <action type="navigate">exp[%defectUrl%]</action>
+        <action type="sleep">5000</action>
+    </common_actions.Navigate_To_Defect_Printable_Page>
+
+    <common_actions.Open_Defect_Status_DropDown>
+       <action type="click" by="css" selector="[data-test-id='ref-spotlight-target-status-spotlight'] button"></action>
+    </common_actions.Open_Defect_Status_DropDown>
+
+    <common_actions.Navigate_To_History_Tab>
+        <action type="executejs">document.querySelector("[data-testid='issue-activity-feed.ui.buttons.History']").click();</action>
+    </common_actions.Navigate_To_History_Tab>
+
+    <common_actions.Execute_Filter>
+        <action type="function-addPrefix" prefix="exeVar[JiraUrl]" to="exp[%filter%]" OutputVariable="filterUrl" />
+        <action type="navigate">exp[%filterUrl%]</action>
+        <action type="implicitWait" by="css" selector="#ak-main-content table" implicit_wait="30" onError="continue"/>
+    </common_actions.Execute_Filter>
+
+    <common_actions.Execute_Window_Checkpoint>
+        <action type="check" target="window" fullPage="exp[%full_screenshot%]" name="exp[%stepName%]"></action>
+    </common_actions.Execute_Window_Checkpoint>
+
+    <common_actions.Execute_Region_Checkpoint>
+        <action type="checkregion" by="exp[%selector_type%]" selector="exp[%selector%]" name="exp[%stepName%]" fullPage="exp[%full_screenshot%]"></action>
+    </common_actions.Execute_Region_Checkpoint>
+
+    <common_actions.Open_Kanban_Board>
+        <action type="function-addPrefix" prefix="exeVar[JiraUrl]" to="exp[%board%]" OutputVariable="boardUrl" />
+        <action type="navigate">exp[%boardUrl%]</action>
+    </common_actions.Open_Kanban_Board>
+
+
+</definitions>

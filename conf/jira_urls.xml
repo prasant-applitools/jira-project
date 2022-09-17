@@ -1,0 +1,7 @@
+<definitions>
+    <var key="Filter_Poonam">jira/software/c/projects/DEMO/issues/?jql=project%20%3D%20%22DEMO%22%20AND%20reporter%20%3D%20%225e9ecd312632500c19eab776%22%20ORDER%20BY%20created%20DESC</var>
+    <var key="Defect_Printable_Path">si/jira.issueviews:issue-html/DEMO-256/DEMO-256.html</var>
+    <var key="Defect_Path">browse/DEMO-257</var>
+    <var key="Defect_With_History_Path">browse/DEMO-240</var>
+    <var key="Kanban_Board">jira/software/c/projects/EYES/boards/1</var>
+</definitions>

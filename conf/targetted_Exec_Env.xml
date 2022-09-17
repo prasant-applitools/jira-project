@@ -1,0 +1,38 @@
+<definitions>
+
+	<!-- Ultra Fast Settings -->
+	<configuration name="ultra_fast_headless">
+		<applitools>applitools_Conf.xml</applitools>
+		<driver useChromeOptions="Chrome_headless">chrome</driver>
+		<viewport width="1300" height="800"></viewport>
+		<visualGrid>
+			<browser type="SAFARI" width="1300" height="600" />
+			<browser type="SAFARI_ONE_VERSION_BACK" width="1300" height="600" />
+			<browser type="chrome" width="1300" height="600" />
+			<browser type="CHROME_ONE_VERSION_BACK" width="1300" height="600" />
+			<browser type="FIREFOX" width="1300" height="600" />
+			<browser type="FIREFOX_ONE_VERSION_BACK" width="1300" height="600" />
+		</visualGrid>
+	</configuration>
+
+    <!-- Chrome Local 600X600-->
+	<configuration name="chromeLocally_600X600"> 
+		<applitools>applitools_Conf.xml</applitools>
+		<driver>chrome</driver>
+		<viewport width="600" height="600"></viewport>
+	</configuration>
+
+	<!-- Chrome Local 1300X800-->
+	<configuration name="chromeLocally_1300X800"> 
+		<applitools>applitools_Conf.xml</applitools>
+		<driver>chrome</driver>
+		<viewport width="1920" height="800"></viewport>
+	</configuration>
+    
+    <!-- Firefox Local -->
+	<configuration name="firefoxLocally_600X600"> 
+		<applitools>applitools_Conf.xml</applitools>
+		<driver>firefox</driver>
+		<viewport width="600" height="600"></viewport>
+	</configuration>
+</definitions>

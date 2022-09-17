@@ -1,0 +1,126 @@
+<job>
+
+	<!-- Load defined targetted Exec Env. -->
+	<load>conf/targetted_Exec_Env.xml</load>
+
+	<!-- Load Jira Filters -->
+	<load>conf/jira_urls.xml</load>
+	
+	<load>conf/applitools_Variables.xml</load>
+
+	<!-- Load Common Actions -->
+	<load>page_actions/common_actions.xml</load>
+	
+	<batch name="var[batch_name]"> <!-- Start of Batch -->
+		<!-- Test Case - 1 -->
+		<test appname="var[app_name]" testname="Jira Filter Validation" tags="var[tags]">
+			<!-- Test Configuration -->
+			<configurations names="var[targeted_browsers]"/>
+
+			<!-- Test Steps -->
+			<execute>
+			
+				<!-- Navigate to Jira page -->
+				<common_actions.Login_To_Jira/>
+
+				<!-- Navigate to Filter Page-->
+				<common_actions.Execute_Filter filter="var[Filter_Poonam]"/>
+
+				<!-- Navigate to Printable Page-->
+				<common_actions.Navigate_To_Filter_Printable_Page/>
+
+				<!-- Full Page check of Printable Page-->
+				<common_actions.Execute_Window_Checkpoint stepName="Check Filter Data" full_screenshot="true"/>
+			</execute>
+
+		</test> <!-- End of Test Case -->
+
+		<!-- Test Case - 2 -->
+		<test appname="var[app_name]" testname="Jira Ticket Validation" tags="var[tags]">
+			<!-- Test Configuration -->
+			<configurations names="var[targeted_browsers]"/>
+
+			<!-- Test Steps -->
+			<execute>
+			
+				<!-- Navigate to Jira page -->
+				<common_actions.Login_To_Jira/>
+
+				<!-- Navigate to Printable Page-->
+				<common_actions.Navigate_To_Defect_Printable_Page defect_printable_path="var[Defect_Printable_Path]"/>
+
+				<!-- Full Page check of Printable Page-->
+				<common_actions.Execute_Window_Checkpoint stepName="Check Defect Data" full_screenshot="true"/>
+			</execute>
+
+		</test> <!-- End of Test Case -->
+
+		<!-- Test Case - 3 -->
+		<test appname="var[app_name]" testname="Jira Ticket Work Flow Status" tags="var[tags]">
+			<!-- Test Configuration -->
+			<configurations names="var[targeted_browsers]"/>
+
+			<!-- Test Steps -->
+			<execute>
+			
+				<!-- Navigate to Jira page -->
+				<common_actions.Login_To_Jira/>
+
+				<!-- Navigate to Defect Page-->
+				<common_actions.Navigate_To_Defect_Page defect_path="var[Defect_Path]"/>
+
+				<!-- Open Defect status drop down-->
+				<common_actions.Open_Defect_Status_DropDown/>
+
+				<!-- Full Page check of Printable Page-->
+				<common_actions.Execute_Window_Checkpoint stepName="Check Defect Data" full_screenshot="true"/>
+			</execute>
+
+		</test> <!-- End of Test Case -->
+		
+		<!-- Test Case - 4 -->
+		<test appname="var[app_name]" testname="Jira Kanban Board ticket status" tags="var[tags]">
+			<!-- Test Configuration -->
+			<configurations names="var[targeted_browsers]"/>
+
+			<!-- Test Steps -->
+			<execute>
+			
+				<!-- Navigate to Jira page -->
+				<common_actions.Login_To_Jira/>
+
+				<!-- Navigate to Kanban Page-->
+				<common_actions.Open_Kanban_Board board="var[Kanban_Board]"/>
+
+				<!-- Full Page check of Printable Page-->
+				<common_actions.Execute_Region_Checkpoint full_screenshot="true" stepName="Check Board Data" selector_type="css" selector="#ghx-column-headers"/>
+			</execute>
+
+		</test> <!-- End of Test Case -->
+
+		<!-- Test Case - 5 -->
+		<test appname="var[app_name]" testname="Jira Defect History tab" tags="var[tags]">
+			<!-- Test Configuration -->
+			<configurations names="var[targeted_browsers]"/>
+
+			<!-- Test Steps -->
+			<execute>
+			
+				<!-- Navigate to Jira page -->
+				<common_actions.Login_To_Jira/>
+
+				<!-- Navigate to Defect Page-->
+				<common_actions.Navigate_To_Defect_Page defect_path="var[Defect_With_History_Path]"/>
+
+				<common_actions.Navigate_To_History_Tab/>
+
+				<!-- Full Page check of Printable Page-->
+				<common_actions.Execute_Region_Checkpoint stepName="Check History Data" full_screenshot="true" selector_type="xpath" selector="//*[@data-test-id='issue-history.ui.history-items.issue-created-history-item.history-item']/parent::div"/>
+			</execute>
+
+		</test> <!-- End of Test Case -->
+		
+	</batch> <!-- End of Batch -->
+
+
+</job>
